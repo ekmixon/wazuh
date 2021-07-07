@@ -48,6 +48,7 @@ class WazuhDBQueryMitre(WazuhDBQuery):
         pass
 
     def _format_data_into_dictionary(self):
+        """Standardization of dates to the ISO 8601 format."""
         for t in self._data:
             if t.keys() >= {'created_time', 'modified_time'}:
                 t['created_time'] = datetime.strptime(t['created_time'],
